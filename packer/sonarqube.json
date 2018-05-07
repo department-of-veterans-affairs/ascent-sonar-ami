@@ -1,0 +1,47 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "aws_region": "us-gov-west-1"
+  },
+
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "{{user `aws_region`}}",
+      "source_ami_filter": { "filters": { "name": "ascent-base-*" }, "most_recent": true },
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ssh_pty": true,
+      "ami_name": "ascent-sonarqube {{timestamp}}",
+      "tags": {
+        "name": "ascent-sonarqube"
+      },
+      "snapshot_tags": {
+        "name": "ascent-sonarqube"
+      }
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "run-sonarqube.sh",
+      "destination": "~/run-sonarqube.sh"
+    },
+    {
+      "type": "file",
+      "source": "sonar-service",
+      "destination": "~/sonar-service"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "install-java.sh",
+        "install-sonar.sh"
+      ]
+    }
+  ]
+}
