@@ -55,7 +55,7 @@ variable "sonar_db_name" {
 
 variable "postgres_version" {
   description = "The version of the mysql database engine"
-  default     = "9.6.8"
+  default     = "9.6.6"
 }
 
 variable "user_data" {
