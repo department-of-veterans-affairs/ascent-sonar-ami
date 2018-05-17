@@ -12,8 +12,6 @@
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_region`}}",
       "associate_public_ip_address": "true",
-      "vpc_id": "vpc-817d0ee4",
-      "subnet_id": "subnet-4bb5552f",
       "source_ami_filter": { "filters": { "name": "ascent-base-*" }, "most_recent": true },
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
