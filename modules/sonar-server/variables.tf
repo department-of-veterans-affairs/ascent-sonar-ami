@@ -44,6 +44,11 @@ variable "sonar_db_password" {
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
 
+variable "san" {
+  description = "The value for the SAN tag of the instance"
+  default     = "sonar.internal.vetservices.gov"
+}
+
 variable "root_db_name" {
   description = "The name of the database created by rds on when it first comes up"
   default     = "rootdb"

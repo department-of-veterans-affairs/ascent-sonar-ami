@@ -20,6 +20,7 @@ resource "aws_instance" "sonar" {
   user_data                   = "${var.user_data == "" ? data.template_file.sonar_user_data.rendered : var.user_data}"
   tags {
       Name = "${var.instance_name}"
+      SAN = "${var.san}"
   }
 }
 
