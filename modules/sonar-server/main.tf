@@ -18,7 +18,6 @@ resource "aws_instance" "sonar" {
   subnet_id                   = "${var.subnet_ids[length(var.subnet_ids) - 1]}"
   vpc_security_group_ids      = ["${aws_security_group.sonar_security_group.id}"]
   user_data                   = "${var.user_data == "" ? data.template_file.sonar_user_data.rendered : var.user_data}"
-  iam_instance_profile        = "${aws_iam_instance_profile.instance_profile.name}"
   tags {
       Name = "${var.instance_name}"
   }
