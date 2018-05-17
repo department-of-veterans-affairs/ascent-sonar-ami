@@ -21,7 +21,6 @@ resource "aws_db_instance" "sonar_database_instance" {
   name                   = "${var.root_db_name}"
   vpc_security_group_ids = ["${aws_security_group.sonar_database_security_group.id}"]
   db_subnet_group_name   = "${aws_db_subnet_group.sonar_subnet_group.id}"
-  parameter_group_name   = "${var.sonar_db_identifier}"
   # TODO: may need to change this later. Leave true for now for
   #    testing purposes
   skip_final_snapshot    = true
