@@ -57,7 +57,7 @@ data "template_file" "sonar_user_data" {
   template = "${file("${path.module}/sonar-user-data.sh")}"
 
   vars {
-    jdbc_url            = "jdbc:postgres://${module.sonar-database.endpoint}/${var.sonar_db_name}"
+    jdbc_url            = "jdbc:postgresql://${module.sonar-database.endpoint}/${var.sonar_db_name}"
     db_username         = "${var.sonar_db_username}"
     db_password         = "${var.sonar_db_password}"
   }
