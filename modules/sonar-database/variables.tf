@@ -42,5 +42,5 @@ variable "root_db_name" {
 # Version determined from https://docs.sonarqube.org/display/SONAR/Requirements
 variable "postgres_version" {
   description = "The version of the postgres engine"
-  default     = "9.6.8"
+  default     = "9.6.6"
 }
