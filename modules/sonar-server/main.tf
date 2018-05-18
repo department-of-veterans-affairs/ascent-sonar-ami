@@ -44,7 +44,7 @@ module "security_group_rules" {
 
   security_group_id                  = "${aws_security_group.sonar_security_group.id}"
   allowed_inbound_cidr_blocks        = ["${var.allowed_inbound_cidr_blocks}"]
-  allowed_inbound_security_group_ids = ["${var.allowed_inbound_security_group_ids}"]
+  allowed_inbound_security_group_ids = ["${var.allowed_inbound_security_group_ids}", "${sonar-database.security_group_id}"]
   allowed_ssh_cidr_blocks            = ["${var.allowed_ssh_cidr_blocks}"]
   sonar_port                       = "${var.sonar_http_port}"
 }
