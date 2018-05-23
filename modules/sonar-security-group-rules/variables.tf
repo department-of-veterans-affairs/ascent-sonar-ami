@@ -16,6 +16,10 @@ variable "allowed_ssh_cidr_blocks" {
   type        = "list"
 }
 
+variable "db_security_group_id" {
+  description = "The security group ID of sonar's database for successful connecting"
+}
+
 ###############################################################################
 # OPTIONAL VARIABLES
 ###############################################################################
