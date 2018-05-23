@@ -44,7 +44,7 @@ module "security_group_rules" {
 
   security_group_id                  = "${aws_security_group.sonar_security_group.id}"
   allowed_inbound_cidr_blocks        = ["${var.allowed_inbound_cidr_blocks}"]
-  allowed_inbound_security_group_ids = ["${var.allowed_inbound_security_group_ids}", "${module.sonar-database.security_group_id}"]
+  allowed_inbound_security_group_ids = ["${var.allowed_inbound_security_group_ids}", "${module.sonar_database.security_group_id}"]
   allowed_ssh_cidr_blocks            = ["${var.allowed_ssh_cidr_blocks}"]
   sonar_port                       = "${var.sonar_http_port}"
 }
@@ -68,7 +68,7 @@ data "template_file" "sonar_user_data" {
 # The Database for Sonar to Use
 # ---------------------------------------------------------------------------------------------------------------------
 
-module "sonar-database" {
+module "sonar_database" {
   source                               = "../sonar-database"
   sonar_db_username                  = "${var.sonar_db_username}"
   sonar_db_password                  = "${var.sonar_db_password}"
