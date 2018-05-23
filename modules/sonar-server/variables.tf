@@ -21,7 +21,7 @@ variable "vpc_id" {
 }
 
 variable "allowed_inbound_cidr_blocks" {
-  description = "A list of CIDR-formatted IP address ranges from which the EC2 Instances will allow connectiont to DNS"
+  description = "A list of CIDR-formatted IP address ranges from which the EC2 Instances will allow connectiont to sonar"
   type        = "list"
 }
 
