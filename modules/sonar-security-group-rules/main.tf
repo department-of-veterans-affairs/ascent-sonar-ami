@@ -43,6 +43,7 @@ resource "aws_security_group_rule" "allow_sonar_tcp_inbound_from_db_security_gro
   to_port                    = "${var.sonar_port}"
   protocol                   = "tcp"
   source_security_group_id   = "${var.db_security_group_id}"
+  security_group_id          = "${var.security_group_id}"
 }
 
 resource "aws_security_group_rule" "allow_all_outbound" {
