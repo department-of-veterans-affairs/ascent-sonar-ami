@@ -5,7 +5,6 @@
 ###############################################################################
 
 resource "aws_security_group_rule" "allow_sonar_web_inbound" {
-  count        = "${length(var.allowed_inbound_cidr_blocks) >= 1 ? 1 : 0}"
   type         = "ingress"
   from_port    = "${var.sonar_port}"
   to_port      = "${var.sonar_port}"
@@ -16,7 +15,6 @@ resource "aws_security_group_rule" "allow_sonar_web_inbound" {
 }
 
 resource "aws_security_group_rule" "allow_sonar_ssh_inbound" {
-  count        = "${length(var.allowed_inbound_cidr_blocks) >= 1 ? 1 : 0}"
   type         = "ingress"
   from_port    = "${var.ssh_port}"
   to_port      = "${var.ssh_port}"
