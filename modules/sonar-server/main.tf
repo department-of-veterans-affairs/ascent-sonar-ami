@@ -46,7 +46,7 @@ module "security_group_rules" {
   allowed_inbound_cidr_blocks        = ["${var.allowed_inbound_cidr_blocks}"]
   allowed_inbound_security_group_ids = ["${var.allowed_inbound_security_group_ids}"]
   allowed_ssh_cidr_blocks            = ["${var.allowed_ssh_cidr_blocks}"]
-  db_security_group_id               = ["${module.sonar_database.security_group_id}"]
+  db_security_group_id               = "${module.sonar_database.security_group_id}"
   sonar_port                       = "${var.sonar_http_port}"
 }
 
