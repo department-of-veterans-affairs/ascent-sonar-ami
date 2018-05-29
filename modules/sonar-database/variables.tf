@@ -15,15 +15,13 @@ variable "sonar_db_identifier" {
   description = "The name of the rds instance"
 }
 
-variable "sonar_subnet_ids" {
-  description = "A list of VPC subnet IDs."
-  type        = "list"
+variable "sonar_subnet_id" {
+  description = "Subnet in which to create the DB instance"
 }
 
 variable "vpc_id" {
   description = "The ID of the VPC in which to deploy the sonar instance"
 }
-
 
 variable "allowed_inbound_security_group_id" {
   description = "The security group ID that the sonar instance uses, so the sonar instance will be allowed"

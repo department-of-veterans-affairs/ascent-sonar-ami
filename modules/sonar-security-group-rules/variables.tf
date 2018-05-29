@@ -32,9 +32,8 @@ variable "allowed_inbound_security_group_ids" {
 
 variable "sonar_port" {
   description = "The port used to resolve sonar web connections"
-  default     = 5432
+  default     = 9000
 }
-
 
 variable "ssh_port" {
   description = "The port used to resolve SSH connections"

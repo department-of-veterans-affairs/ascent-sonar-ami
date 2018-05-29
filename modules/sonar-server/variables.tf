@@ -1,4 +1,3 @@
-
 # ---------------------------------------------------------------------------------------------------------------------
 # REQUIRED PARAMETERS
 # You must provide a value for each of these parameters.
@@ -25,9 +24,8 @@ variable "allowed_inbound_cidr_blocks" {
   type        = "list"
 }
 
-variable "subnet_ids" {
-  description = "The subnet IDs into which the EC2 instances should be deployed."
-  type        = "list"
+variable "subnet_id" {
+  description = "The subnet ID into which the Sonar instance should be deployed."
 }
 
 variable "sonar_db_username" {
@@ -37,7 +35,6 @@ variable "sonar_db_username" {
 variable "sonar_db_password" {
   description = "The database password with which to authenticate"
 }
-
 
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
@@ -53,6 +50,7 @@ variable "root_db_name" {
   description = "The name of the database created by rds on when it first comes up"
   default     = "rootdb"
 }
+
 variable "sonar_db_name" {
   description = "The name of the database that fortify will use"
   default     = "postgres"
@@ -69,8 +67,8 @@ variable "user_data" {
 }
 
 variable "ssh_key_name" {
-  description  = "The name of an EC2 Key Pair that can be used to SSH to the EC2 Instance. Set to an empty string to not associate a key pair"
-  default      = ""
+  description = "The name of an EC2 Key Pair that can be used to SSH to the EC2 Instance. Set to an empty string to not associate a key pair"
+  default     = ""
 }
 
 variable "allowed_ssh_cidr_blocks" {
@@ -124,14 +122,4 @@ variable "root_volume_size" {
 variable "root_volume_delete_on_termination" {
   description = "Whether the volume should be destroyed on instance termination"
   default     = "true"
-}
-
-variable "sonar_http_port" {
-  description = "The port used to reach fortify's UI console"
-  default     = 9000
-}
-
-variable "ssh_port" {
-  description = "The port used for SSH connections"
-  default     = 22
 }
