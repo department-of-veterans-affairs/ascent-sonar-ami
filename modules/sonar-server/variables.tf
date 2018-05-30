@@ -123,3 +123,8 @@ variable "root_volume_delete_on_termination" {
   description = "Whether the volume should be destroyed on instance termination"
   default     = "true"
 }
+
+variable "sonar_port" {
+  description = "Port the Sonar server runs on"
+  default     = 9000
+}

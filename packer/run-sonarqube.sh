@@ -10,6 +10,7 @@ SONAR_CONFIG=$SONAR_HOME/conf/sonar.properties
 DB_USERNAME=$1
 DB_PASSWORD=$2
 DATABASE_JDBC_URL=$3
+PORT=$4
 
 echo "USERNAME=$DB_USERNAME"
 echo "PASSWORD=$DB_PASSWORD"
@@ -24,6 +25,7 @@ echo "sonar.jdbc.username=${DB_USERNAME}" >> $SONAR_CONFIG
 echo "sonar.jdbc.password=${DB_PASSWORD}" >> $SONAR_CONFIG
 echo "sonar.jdbc.url=${DATABASE_JDBC_URL}" >> $SONAR_CONFIG
 echo "sonar.web.javaOpts=-server" >> $SONAR_CONFIG
+echo "sonar.web.port=${PORT}" >> $SONAR_CONFIG
 
 # #####################################################################################
 # Add sonar as a service

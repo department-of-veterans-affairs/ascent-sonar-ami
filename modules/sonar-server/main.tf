@@ -46,6 +46,7 @@ module "security_group_rules" {
   allowed_inbound_security_group_ids = ["${var.allowed_inbound_security_group_ids}"]
   allowed_ssh_cidr_blocks            = ["${var.allowed_ssh_cidr_blocks}"]
   db_security_group_id               = "${module.sonar_database.security_group_id}"
+  sonar_port                         = "${var.sonar_port}"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -58,6 +59,7 @@ data "template_file" "sonar_user_data" {
     jdbc_url          = "jdbc:postgresql://${module.sonar_database.endpoint}/${var.sonar_db_name}"
     sonar_db_username = "${var.sonar_db_username}"
     sonar_db_password = "${var.sonar_db_password}"
+    sonar_port        = "${var.sonar_port}"
   }
 }
 
