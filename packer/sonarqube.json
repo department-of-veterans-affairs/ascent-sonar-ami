@@ -2,7 +2,8 @@
   "variables": {
     "aws_access_key": "",
     "aws_secret_key": "",
-    "aws_region": "us-gov-west-1"
+    "aws_region": "us-gov-west-1",
+    "ami_version": "{{timestamp}}"
   },
 
   "builders": [
@@ -11,11 +12,14 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_region`}}",
+      "associate_public_ip_address": true,
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
       "source_ami_filter": { "filters": { "name": "ascent-base-*" }, "most_recent": true },
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ssh_pty": true,
-      "ami_name": "ascent-sonarqube {{timestamp}}",
+      "ami_name": "ascent-sonarqube-{{user `ami_version`}}",
       "tags": {
         "name": "ascent-sonarqube"
       },
