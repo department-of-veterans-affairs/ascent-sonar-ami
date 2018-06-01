@@ -15,8 +15,9 @@ variable "sonar_db_identifier" {
   description = "The name of the rds instance"
 }
 
-variable "sonar_subnet_id" {
+variable "sonar_subnet_ids" {
   description = "Subnet in which to create the DB instance"
+  type = "list"
 }
 
 variable "vpc_id" {

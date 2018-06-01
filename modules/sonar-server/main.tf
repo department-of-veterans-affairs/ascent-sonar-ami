@@ -14,7 +14,7 @@ resource "aws_instance" "sonar" {
   instance_type          = "${var.instance_type}"
   ami                    = "${var.ami_id}"
   key_name               = "${var.ssh_key_name}"
-  subnet_id              = "${var.subnet_ids}"
+  subnet_id              = "${var.subnet_id}"
   vpc_security_group_ids = ["${aws_security_group.sonar_security_group.id}"]
   user_data              = "${var.user_data == "" ? data.template_file.sonar_user_data.rendered : var.user_data}"
 
@@ -73,7 +73,7 @@ module "sonar_database" {
   sonar_db_password                 = "${var.sonar_db_password}"
   root_db_name                      = "${var.root_db_name}"
   sonar_db_identifier               = "${var.instance_name}-database"
-  sonar_subnet_ids                  = ["${var.subnet_id}"]
+  sonar_subnet_ids                   = ["${var.db_subnet_ids}"]
   allowed_inbound_security_group_id = "${aws_security_group.sonar_security_group.id}"
   vpc_id                            = "${var.vpc_id}"
 }

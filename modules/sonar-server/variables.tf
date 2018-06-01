@@ -28,6 +28,11 @@ variable "subnet_id" {
   description = "The subnet ID into which the Sonar instance should be deployed."
 }
 
+variable "db_subnet_ids" {
+  description = "The subnet IDs into which the Sonar database should be deployed."
+  type        = "list"
+}
+
 variable "sonar_db_username" {
   description = "The database username with which to authenticate"
 }

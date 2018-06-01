@@ -28,7 +28,7 @@ resource "aws_db_instance" "sonar_database_instance" {
 
 resource "aws_db_subnet_group" "sonar_subnet_group" {
   name       = "${var.sonar_db_identifier}-subnet_group"
-  subnet_ids = ["${var.sonar_subnet_id}"]
+  subnet_ids = ["${var.sonar_subnet_ids}"]
 
   tags {
     Name = "DB subnet group for ${var.sonar_db_identifier}"
